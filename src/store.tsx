@@ -13,7 +13,7 @@ export const useStore = create<StoreState>((set) => ({
   fetchIssues: async () => {
     try {
       const { data: issues } = await axios.get(`${BASE_URL}/issues`)
-      console.log('rawData :>> ', issues)
+      console.log('issues :>> ', issues)
       set({ issues })
     } catch (err) {
       alert(`Error fetching data from Cosmos: ${JSON.stringify(err)}`)

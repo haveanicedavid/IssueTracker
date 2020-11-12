@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Container maxWidth="lg" className="App">
+      <Container maxWidth="lg">
         <IssueTable />
       </Container>
     </div>

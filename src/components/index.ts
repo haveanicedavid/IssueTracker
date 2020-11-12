@@ -1,1 +1,1 @@
-export * from './IssueTable'
+export * from './IssueTable/IssueTable'
