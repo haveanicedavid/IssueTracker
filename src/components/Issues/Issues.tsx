@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { CircularProgress } from '@material-ui/core'
-// import { format } from 'date-fns'
+import { IssuesListForRepoResponseData } from '@octokit/types'
 import MUIDataTable, { MUIDataTableProps } from 'mui-datatables'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issues.scss'
-import { useStore /* , IssuesStubs */ } from '../../store'
-import { parseTableData } from '../../util'
+import { useStore } from '../../store'
+import { formatDate } from '../../util'
 
 const tableOptions: MUIDataTableProps['options'] = {
   filterType: 'checkbox',
@@ -86,7 +86,7 @@ export const Issues: React.FC = () => {
     <div className="Issues">
       {issues.length ? (
         <MUIDataTable
-          title={'Cosmos Issues'}
+          title="Cosmos Issues"
           data={parseTableData(issues)}
           columns={tableColumns}
           options={tableOptions}
@@ -96,4 +96,18 @@ export const Issues: React.FC = () => {
       )}
     </div>
   )
+}
+
+function parseTableData(rawIssues: IssuesListForRepoResponseData) {
+  return rawIssues.map((issue) => {
+    const { title, user, created_at, updated_at, html_url, comments } = issue
+    return {
+      title,
+      url: html_url,
+      commentCount: comments,
+      created: formatDate(created_at),
+      updated: formatDate(updated_at),
+      creator: user.login,
+    }
+  })
 }

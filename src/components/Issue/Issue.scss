@@ -2,12 +2,8 @@
   padding: 15px;
   margin-top: 15px;
 
-  &-title {
-    display: flex;
-  }
-
   &-comment {
-    margin: 10px 0;
+    margin: 10px;
     border-bottom: 1px solid gray;
     display: flex;
     flex-direction: row;
@@ -20,5 +16,6 @@
 
   &-markdown {
     display: block;
+    margin-left: 10px;
   }
 }

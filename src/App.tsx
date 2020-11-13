@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Container } from '@material-ui/core'
+
 import './App.scss'
 import { useStore } from './store'
 import { Routes } from './Routes'
