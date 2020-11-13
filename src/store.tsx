@@ -1,5 +1,5 @@
 import create from 'zustand'
-import axios from 'axios'
+// import axios from 'axios'
 import { IssuesListForRepoResponseData } from '@octokit/types'
 
 export const BASE_URL = 'https://api.github.com/repos/cosmos/cosmos-sdk'

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import { useParams } from 'react-router-dom'
 import './Issue.scss'
-import { BASE_URL, useStore } from '../../store'
+import { /* BASE_URL, */ useStore } from '../../store'
 import Avatar from '@material-ui/core/Avatar'
 import { CircularProgress, Paper, Box } from '@material-ui/core'
 

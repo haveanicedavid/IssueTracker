@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { CircularProgress } from '@material-ui/core'
-import { format } from 'date-fns'
+// import { format } from 'date-fns'
 import MUIDataTable, { MUIDataTableProps } from 'mui-datatables'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issues.scss'
-import { useStore, IssuesStubs } from '../../store'
+import { useStore /* , IssuesStubs */ } from '../../store'
 import { parseTableData } from '../../util'
 
 const tableOptions: MUIDataTableProps['options'] = {
