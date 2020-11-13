@@ -1,0 +1,24 @@
+.Issue {
+  padding: 15px;
+  margin-top: 15px;
+
+  &-title {
+    display: flex;
+  }
+
+  &-comment {
+    margin: 10px 0;
+    border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-markdown {
+    display: block;
+  }
+}

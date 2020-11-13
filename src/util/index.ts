@@ -7,10 +7,11 @@ function formatDate(dateString: string) {
 
 export function parseTableData(rawIssues: IssuesListForRepoResponseData) {
   return rawIssues.map((issue) => {
-    const { title, user, created_at, updated_at, html_url } = issue
+    const { title, user, created_at, updated_at, html_url, comments } = issue
     return {
       title,
       url: html_url,
+      commentCount: comments,
       created: formatDate(created_at),
       updated: formatDate(updated_at),
       creator: user.login,

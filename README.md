@@ -1,7 +1,11 @@
 # Cosmos Issue Viewer Challenge
 
+I built this challenge with the primary intent of demonstrating competency in front-end architecture. Design decisions were made I would not normally make in the context of a production app: 
+1. I intentionally fetch data in 
 ## Data
+
 I used [Zustand](https://github.com/pmndrs/zustand) for a global store
+
 ## Setup
 
 ## Notes
@@ -13,4 +17,6 @@ I used [Zustand](https://github.com/pmndrs/zustand) for a global store
 - in `Issue.tsx` (the issue show page) I am passing an issue number through route params and using that to re-fetch the same data, which isn't ideal architecture but I wanted to try and demonstrate a few different code patterns
 
 ## TODO
-- Extract progress loader to 
+
+- Address the initial loading spinner animation's
+- Error handling - shouldn't have to be handled at issue fetch
