@@ -1,10 +1,8 @@
 import create from 'zustand'
 import axios from 'axios'
-import { IssuesListForRepoResponseData } from '@octokit/types'
+import { Issue } from './types'
 
 export const BASE_URL = 'https://api.github.com/repos/cosmos/cosmos-sdk'
-
-type Issue = IssuesListForRepoResponseData[0]
 
 type StoreState = {
   issuesByNum: {

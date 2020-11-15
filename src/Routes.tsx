@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Issues, Issue } from './components'
+import { Issues, Issue } from './components/pages'
 
 export const Routes: React.FC = () => (
   <Switch>

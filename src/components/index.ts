@@ -1,3 +1,3 @@
-export * from './Issues/Issues'
-export * from './Issue/Issue'
-export * from './Comment/Comment'
+export * from './pages'
+export * from './organisms'
+export * from './molecules'

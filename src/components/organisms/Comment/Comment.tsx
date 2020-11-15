@@ -1,8 +1,7 @@
 import React from 'react'
 import { Avatar, Box } from '@material-ui/core'
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
 import './Comment.scss'
+import { Markdown } from '../../molecules'
 
 type Props = {
   userLogin: string
@@ -23,9 +22,7 @@ export const Comment: React.FC<Props> = ({
         </div>
 
         <div className="Comment-body">
-          <ReactMarkdown plugins={[gfm]} className="Comment-markdown">
-            {commentBody}
-          </ReactMarkdown>
+          <Markdown markdownStr={commentBody} />
         </div>
       </div>
     </Box>

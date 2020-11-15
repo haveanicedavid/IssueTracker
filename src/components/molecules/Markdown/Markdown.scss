@@ -1,0 +1,45 @@
+.Markdown {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  pre {
+    background-color: #eceff1;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: scroll;
+  }
+  code {
+    background-color: #eceff1;
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    padding: 0;
+  }
+
+  blockquote {
+    padding-left: 10px;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      content: '';
+      border-left: 0.3rem solid #b0bec5;
+      // border-top: 0.3rem solid black;
+      width: 4rem;
+      margin: 0 1rem;
+      transform: translateY(-1rem);
+    }
+  }
+}

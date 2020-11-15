@@ -18,6 +18,7 @@ Deployed on Netlify [here](https://gifted-jackson-04a1aa.netlify.app/)
 - [React Router](https://reactrouter.com)
 - [Material UI](https://material-ui.com)
 - [Zustand](https://github.com/pmndrs/zustand) for global state
+- [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) for component structure
 
 ## TODO
 

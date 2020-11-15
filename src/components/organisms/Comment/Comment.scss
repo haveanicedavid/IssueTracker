@@ -27,28 +27,4 @@
   &-body {
     padding: 0 10px;
   }
-
-  &-markdown {
-    h1 {
-      font-size: 22px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      margin: 0;
-      padding: 0;
-    }
-
-    blockquote {
-      border-left: 3px solid #b0bec5;
-      padding-left: 10px;
-    }
-  }
 }

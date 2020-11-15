@@ -2,16 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { CircularProgress, Paper, Typography } from '@material-ui/core'
-import { IssuesListCommentsResponseData } from '@octokit/types'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issue.scss'
-import { useStore } from '../../store'
-import { Comment } from '../Comment/Comment'
+import { useStore } from '../../../store'
+import { Comment } from '../../organisms'
+import { Comments, Issue as IssueType } from '../../../types'
+
+const Title: React.FC<{ issue: IssueType }> = ({ issue }) => (
+  <Typography variant="h5" className="Issue-title">
+    {issue.title} <span className="Issue-num">#{issue.number}</span>
+    <a
+      href={issue.html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="Issue-git"
+    >
+      <GitHubIcon />
+    </a>
+  </Typography>
+)
 
 export const Issue: React.FC = () => {
   const { number: issueNum } = useParams<{ number: string }>()
-  const [comments, setComments] = useState<IssuesListCommentsResponseData>([])
+  const [comments, setComments] = useState<Comments>([])
   const issuesByNum = useStore((state) => state.issuesByNum)
   const issue = issuesByNum[issueNum]
   const commentsUrl = issue?.comments_url
@@ -29,21 +43,10 @@ export const Issue: React.FC = () => {
   return (
     <Paper className="Issue" elevation={3}>
       {!issue?.user ? (
-        <CircularProgress />
+        <CircularProgress className="Issue-loader" />
       ) : (
         <>
-          <Typography variant="h5">
-            {issue.title} <span className="Issue-num">#{issue.number}</span>
-            <a
-              href={issue.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="Issue-git"
-            >
-              <GitHubIcon />
-            </a>
-          </Typography>
-
+          <Title issue={issue} />
           <Comment
             commentBody={issue.body}
             userLogin={issue.user.login}

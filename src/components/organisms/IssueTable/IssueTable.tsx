@@ -1,24 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CircularProgress } from '@material-ui/core'
-import { IssuesListForRepoResponseData } from '@octokit/types'
 import MUIDataTable, { MUIDataTableProps } from 'mui-datatables'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import { Issues } from '../../../types'
+import { formatDate } from '../../../util'
 
-import './Issues.scss'
-import { useStore } from '../../store'
-import { formatDate } from '../../util'
-
-const tableOptions: MUIDataTableProps['options'] = {
-  filterType: 'checkbox',
-  selectableRows: 'none',
-  download: false,
-  print: false,
+type Props = {
+  issues: Issues
 }
-
-export const Issues: React.FC = () => {
-  const issuesByNum = useStore((state) => state.issuesByNum)
-  const issues = Object.values(issuesByNum)
+export const IssueTable: React.FC<Props> = ({ issues }) => {
+  const tableOptions: MUIDataTableProps['options'] = {
+    filterType: 'checkbox',
+    selectableRows: 'none',
+    download: false,
+    print: false,
+  }
 
   const tableColumns: MUIDataTableProps['columns'] = [
     {
@@ -81,24 +77,17 @@ export const Issues: React.FC = () => {
       },
     },
   ]
-
   return (
-    <div className="Issues">
-      {issues.length ? (
-        <MUIDataTable
-          title="Cosmos Issues"
-          data={parseTableData(issues)}
-          columns={tableColumns}
-          options={tableOptions}
-        />
-      ) : (
-        <CircularProgress />
-      )}
-    </div>
+    <MUIDataTable
+      title="Cosmos Issues"
+      data={parseTableData(issues)}
+      columns={tableColumns}
+      options={tableOptions}
+    />
   )
 }
 
-function parseTableData(rawIssues: IssuesListForRepoResponseData) {
+function parseTableData(rawIssues: Issues) {
   return rawIssues.map((issue) => {
     const { title, user, created_at, updated_at, html_url, comments } = issue
     return {
