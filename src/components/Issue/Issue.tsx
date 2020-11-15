@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
-import Avatar from '@material-ui/core/Avatar'
-import { CircularProgress, Paper, Box } from '@material-ui/core'
+import { CircularProgress, Paper, Typography } from '@material-ui/core'
 import { IssuesListCommentsResponseData } from '@octokit/types'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issue.scss'
 import { useStore } from '../../store'
+import { Comment } from '../Comment/Comment'
 
 export const Issue: React.FC = () => {
   const { number: issueNum } = useParams<{ number: string }>()
@@ -27,20 +26,27 @@ export const Issue: React.FC = () => {
     fetchComments()
   }, [commentsUrl])
 
+  console.log('issue :>> ', issue)
   return (
     <Paper className="Issue" elevation={3}>
       {!issue?.user ? (
         <CircularProgress />
       ) : (
         <>
-          <h1>{issue?.title}</h1>
-          {comments?.map((comment) => (
-            <Box className="Issue-comment">
-              <Avatar alt={comment.user.login} src={comment.user.avatar_url} />
-              <div className="Issue-markdown">
-                <ReactMarkdown plugins={[gfm]}>{comment.body}</ReactMarkdown>
-              </div>
-            </Box>
+          <Typography variant="h5">
+            {issue.title} <span className="Issue-num">#{issue.number}</span>
+            <a
+              href={issue.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="Issue-git"
+            >
+              <GitHubIcon />
+            </a>
+          </Typography>
+
+          {comments?.map((comment, i) => (
+            <Comment comment={comment} key={i} />
           ))}
         </>
       )}
