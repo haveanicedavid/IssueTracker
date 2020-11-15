@@ -11,15 +11,18 @@ import { Comments, Issue as IssueType } from '../../../types'
 
 const Title: React.FC<{ issue: IssueType }> = ({ issue }) => (
   <Typography variant="h5" className="Issue-title">
-    {issue.title} <span className="Issue-num">#{issue.number}</span>
-    <a
-      href={issue.html_url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="Issue-git"
-    >
-      <GitHubIcon />
-    </a>
+    {issue.title}
+    <div className="Issue-gitlink">
+      <span className="Issue-num">#{issue.number}</span>
+      <a
+        href={issue.html_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="Issue-git"
+      >
+        <GitHubIcon />
+      </a>
+    </div>
   </Typography>
 )
 
