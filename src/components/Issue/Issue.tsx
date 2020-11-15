@@ -26,7 +26,6 @@ export const Issue: React.FC = () => {
     fetchComments()
   }, [commentsUrl])
 
-  console.log('issue :>> ', issue)
   return (
     <Paper className="Issue" elevation={3}>
       {!issue?.user ? (
