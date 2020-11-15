@@ -1,25 +1,30 @@
 import React from 'react'
 import { Avatar, Box } from '@material-ui/core'
 import ReactMarkdown from 'react-markdown'
-import { IssuesListCommentsResponseData } from '@octokit/types'
 import gfm from 'remark-gfm'
 import './Comment.scss'
 
 type Props = {
-  comment: IssuesListCommentsResponseData[0]
+  userLogin: string
+  userAvatar: string
+  commentBody: string
 }
-export const Comment: React.FC<Props> = ({ comment }) => {
+export const Comment: React.FC<Props> = ({
+  userLogin,
+  userAvatar,
+  commentBody,
+}) => {
   return (
     <Box className="Comment">
-      <Avatar alt={comment.user.login} src={comment.user.avatar_url} />
+      <Avatar alt={userLogin} src={userAvatar} />
       <div className="Comment-main">
         <div className="Comment-author">
-          {comment.user.login} <span className="Comment-says">commented:</span>
+          {userLogin} <span className="Comment-says">commented:</span>
         </div>
 
         <div className="Comment-body">
           <ReactMarkdown plugins={[gfm]} className="Comment-markdown">
-            {comment.body}
+            {commentBody}
           </ReactMarkdown>
         </div>
       </div>

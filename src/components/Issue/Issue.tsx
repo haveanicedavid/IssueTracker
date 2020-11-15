@@ -45,8 +45,19 @@ export const Issue: React.FC = () => {
             </a>
           </Typography>
 
+          <Comment
+            commentBody={issue.body}
+            userLogin={issue.user.login}
+            userAvatar={issue.user.avatar_url}
+          />
+
           {comments?.map((comment, i) => (
-            <Comment comment={comment} key={i} />
+            <Comment
+              key={i}
+              commentBody={comment.body}
+              userLogin={comment.user.login}
+              userAvatar={comment.user.avatar_url}
+            />
           ))}
         </>
       )}
