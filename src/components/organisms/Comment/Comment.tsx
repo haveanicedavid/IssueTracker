@@ -1,7 +1,8 @@
 import React from 'react'
-import { Avatar, Box } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import './Comment.scss'
 import { Markdown } from '../../molecules'
+import { GitAvatarLink } from '../../atoms'
 
 type Props = {
   userLogin: string
@@ -15,7 +16,7 @@ export const Comment: React.FC<Props> = ({
 }) => {
   return (
     <Box className="Comment">
-      <Avatar alt={userLogin} src={userAvatar} />
+      <GitAvatarLink imgSrc={userAvatar} gitHandle={userLogin} />
       <div className="Comment-main">
         <div className="Comment-author">
           {userLogin} <span className="Comment-says">commented:</span>
