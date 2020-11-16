@@ -1,5 +1,7 @@
 .Markdown {
   word-break: break-word;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 22px;
@@ -15,6 +17,7 @@
     padding: 10px;
     overflow: scroll;
     word-break: break-word;
+    word-wrap: break-word;
   }
   code {
     background-color: #eceff1;

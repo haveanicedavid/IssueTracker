@@ -22,7 +22,13 @@ export const useStore = create<StoreState>((set) => ({
         }))
       })
     } catch (err) {
-      alert(`Error fetching data from Cosmos: ${JSON.stringify(err)}`)
+      alert(
+        `Uh oh! Error fetching data from github (might have reached the rate limit): \n\n ${JSON.stringify(
+          err,
+          null,
+          2
+        )}`
+      )
     }
   },
 }))
