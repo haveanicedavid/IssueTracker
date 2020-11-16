@@ -2,8 +2,8 @@ import React from 'react'
 import { CircularProgress } from '@material-ui/core'
 
 import './Issues.scss'
-import { useStore } from '../../../store'
-import { IssueTable } from '../../organisms'
+import { useStore } from 'store'
+import { IssueTable } from 'components/organisms'
 
 export const Issues: React.FC = () => {
   const issuesByNum = useStore((state) => state.issuesByNum)

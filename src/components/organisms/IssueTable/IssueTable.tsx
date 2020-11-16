@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MUIDataTable, { MUIDataTableProps } from 'mui-datatables'
 import GitHubIcon from '@material-ui/icons/GitHub'
-import { Issues } from '../../../types'
-import { formatDate } from '../../../util'
+
+import { Issues } from 'types'
+import { formatDate } from 'helpers'
 
 type Props = {
   issues: Issues

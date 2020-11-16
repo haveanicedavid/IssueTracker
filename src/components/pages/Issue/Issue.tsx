@@ -5,9 +5,9 @@ import { CircularProgress, Paper, Typography } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issue.scss'
-import { useStore } from '../../../store'
-import { Comment } from '../../organisms'
-import { Comments, Issue as IssueType } from '../../../types'
+import { useStore } from 'store'
+import { Comment } from 'components/organisms'
+import { Comments, Issue as IssueType } from 'types'
 
 const Title: React.FC<{ issue: IssueType }> = ({ issue }) => (
   <Typography variant="h5" className="Issue-title">

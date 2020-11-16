@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
+
 import './Comment.scss'
-import { Markdown } from '../../molecules'
-import { GitAvatarLink } from '../../atoms'
+import { Markdown } from 'components/molecules'
+import { GitAvatarLink } from 'components/atoms'
 
 type Props = {
   userLogin: string
