@@ -1,6 +1,6 @@
 import create from 'zustand'
 import axios from 'axios'
-import { Issue } from './types'
+import { Issue } from 'types'
 
 export const BASE_URL = 'https://api.github.com/repos/cosmos/cosmos-sdk'
 

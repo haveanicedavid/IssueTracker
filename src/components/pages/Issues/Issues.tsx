@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { CircularProgress } from '@material-ui/core'
 
 import './Issues.scss'
@@ -10,8 +11,8 @@ export const Issues: React.FC = () => {
   const issues = Object.values(issuesByNum)
 
   return (
-    <div className="Issues">
+    <motion.div className="Issues" initial={{ x: -22 }} animate={{ x: 0 }}>
       {issues.length ? <IssueTable issues={issues} /> : <CircularProgress />}
-    </div>
+    </motion.div>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import axios from 'axios'
 import { CircularProgress, Paper, Typography } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -44,28 +45,30 @@ export const Issue: React.FC = () => {
   }, [commentsUrl])
 
   return (
-    <Paper className="Issue" elevation={3}>
-      {!issue?.user ? (
-        <CircularProgress className="Issue-loader" />
-      ) : (
-        <>
-          <Title issue={issue} />
-          <Comment
-            commentBody={issue.body}
-            userLogin={issue.user.login}
-            userAvatar={issue.user.avatar_url}
-          />
-
-          {comments?.map((comment, i) => (
+    <motion.div className="Issues" initial={{ x: 22 }} animate={{ x: 0 }}>
+      <Paper className="Issue" elevation={3}>
+        {!issue?.user ? (
+          <CircularProgress className="Issue-loader" />
+        ) : (
+          <>
+            <Title issue={issue} />
             <Comment
-              key={i}
-              commentBody={comment.body}
-              userLogin={comment.user.login}
-              userAvatar={comment.user.avatar_url}
+              commentBody={issue.body}
+              userLogin={issue.user.login}
+              userAvatar={issue.user.avatar_url}
             />
-          ))}
-        </>
-      )}
-    </Paper>
+
+            {comments?.map((comment, i) => (
+              <Comment
+                key={i}
+                commentBody={comment.body}
+                userLogin={comment.user.login}
+                userAvatar={comment.user.avatar_url}
+              />
+            ))}
+          </>
+        )}
+      </Paper>
+    </motion.div>
   )
 }
