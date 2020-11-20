@@ -1,12 +1,25 @@
 .Navbar {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   padding-top: 15px;
+
+  &-icon {
+    align-self: center;
+  }
 
   &-logo {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+  }
+
+  &-right {
+    margin-left: auto;
+  }
+
+  &-gitLink {
+    text-decoration: none;
+    color: inherit;
   }
 }
