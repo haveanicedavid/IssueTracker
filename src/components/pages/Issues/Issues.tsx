@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { CircularProgress } from '@material-ui/core'
 
 import './Issues.scss'
-import { useStore } from 'store'
+import { useStore } from 'store/store'
 import { IssueTable } from 'components/organisms'
 
 export const Issues: React.FC = () => {

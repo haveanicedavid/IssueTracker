@@ -6,7 +6,7 @@ import { CircularProgress, Paper, Typography } from '@material-ui/core'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 import './Issue.scss'
-import { useStore } from 'store'
+import { useStore } from 'store/store'
 import { Comment } from 'components/organisms'
 import { Comments, Issue as IssueType } from 'types'
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 
-import { useStore } from 'store'
+import { useStore } from 'store/store'
 import { Routes } from 'Routes'
 import { Navbar } from 'components'
 
