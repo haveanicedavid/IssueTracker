@@ -10,7 +10,7 @@ A simple git issue viewer for [Cosmos-SDK](https://github.com/cosmos/cosmos-sdk)
 
 ## Live version
 
-Deployed on Netlify [here](https://gifted-jackson-04a1aa.netlify.app/)
+Deployed on Netlify [here](https://cosmostracker.netlify.app/)
 
 ## Technologies
 

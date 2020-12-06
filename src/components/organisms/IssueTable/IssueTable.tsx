@@ -5,16 +5,32 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 
 import { Issues } from 'types'
 import { formatDate } from 'helpers'
+import { useStore } from 'store'
 
 type Props = {
   issues: Issues
+  fetchIssues: (page: number) => void
 }
-export const IssueTable: React.FC<Props> = ({ issues }) => {
+export const IssueTable: React.FC<Props> = ({ issues, fetchIssues }) => {
+  const issueCount = useStore((state) => state.totalIssueCount)
+
   const tableOptions: MUIDataTableProps['options'] = {
     filterType: 'checkbox',
     selectableRows: 'none',
+    rowsPerPage: 100,
     download: false,
     print: false,
+    serverSide: true,
+    count: issueCount,
+    onTableChange: (action, tableState) => {
+      switch (action) {
+        case 'changePage':
+          fetchIssues(tableState.page)
+          break
+        default:
+          console.log('action not handled.')
+      }
+    },
   }
 
   const tableColumns: MUIDataTableProps['columns'] = [
